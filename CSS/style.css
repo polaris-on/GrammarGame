@@ -1,0 +1,263 @@
+@font-face {
+  font-family: "CalSans";
+  src: url("../fonts/CalSans-SemiBold.woff2") format("woff2"),
+    url("../fonts/CalSans-SemiBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+a,
+a:hover,
+a:visited {
+  text-decoration: none;
+}
+li {
+  text-decoration: none;
+  list-style-type: none;
+}
+html {
+  font-family: "Poppins", sans-serif;
+  line-height: 1;
+  font-size: 16px;
+  color: #666666;
+}
+h1 {
+  font-family: "Poppins", sans-serif;
+}
+
+/*********************************/
+
+.wrapper {
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 1 auto;
+}
+[class*="_container"] {
+  min-width: 320px;
+  max-width: 1230px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+/****Header***/
+.header__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 15px !important;
+  font-size: 1.4em;
+  /* background-color: #1f1f2e; */
+  /* border-bottom: 2px solid #00ffff; */
+}
+
+#game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+body {
+  background-color: #0d0d0d;
+  color: #00ffff;
+  font-family: "Orbitron", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.game-container-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+#game-container {
+  background: linear-gradient(145deg, #1f1f2e, #121220);
+  border: 2px solid #00ffff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 0 30px #00ffff66;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+}
+
+.word {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+.countdown {
+  font-size: 1.3em;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 0 0 5px #00ffff;
+}
+
+.choices label {
+  display: block;
+  margin: 10px 0;
+  cursor: pointer;
+  color: #00d0ff;
+  font-size: 1.2em;
+}
+
+.choices input[type="radio"] {
+  margin-right: 10px;
+  accent-color: #00ffff;
+}
+
+button {
+  background-color: #1f1f2e;
+  color: #fff;
+  border: 2px solid #00ffff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0 0 10px #00ffff66;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #009dff6c;
+  transform: scale(1.05);
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: nowrap; /* Забороняє перенесення на новий ряд */
+  margin-top: 1.5rem;
+}
+
+.choice-button {
+  flex: 0 1 auto; /* Кнопки не розтягуються, але й не стискаються до нуля */
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-masculine {
+  order: 1;
+  background: linear-gradient(145deg, #0f0f4b, #1e90ff);
+  color: #fff;
+}
+
+.btn-neutral {
+  order: 2;
+  background: linear-gradient(145deg, #3a3a3a, #a9a9a9);
+  color: #fff;
+}
+
+.btn-feminine {
+  order: 3;
+  background: linear-gradient(145deg, #4b0f2f, #ff69b4);
+  color: #fff;
+}
+
+.btn-default {
+  background: linear-gradient(145deg, #2e2e2e, #5a5a5a);
+  color: #fff;
+}
+
+.choice-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #fff, 0 0 20px #0ff;
+}
+
+#game-stats {
+  margin-bottom: 20px;
+  font-size: 1.1em;
+  color: #ffffff;
+}
+
+.answers-log {
+  margin-top: 20px;
+  padding-left: 20px;
+}
+
+.answers-log li {
+  margin-bottom: 6px;
+  font-size: 1.1em;
+}
+.wrong {
+  color: red;
+  text-decoration: line-through;
+  margin-right: 6px;
+}
+.wrong-answer {
+  background-color: red !important;
+  transition: background-color 0.3s;
+}
+.choice-button.wrong-answer {
+  background-color: #ff3b3b !important;
+  transition: background-color 0.3s ease;
+}
+
+/* Помилки */
+
+#error {
+  animation: flash 0.3s ease-in-out;
+}
+
+@keyframes flash {
+  0% {
+    box-shadow: 0 0 10px rgb(255, 33, 33);
+    background-color: #1f1f2e;
+  }
+  100% {
+    box-shadow: 0 0 40px #00ffff66;
+    background-color: rgb(255, 33, 33);
+  }
+}
+
+.error-flash {
+  animation: flash 0.3s ease-in-out;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 1.2em;
+  color: #00ffff;
+  background-color: #1f1f2e;
+  border-top: 2px solid #00ffff;
+}
