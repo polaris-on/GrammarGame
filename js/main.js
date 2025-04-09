@@ -11,7 +11,26 @@ class GrammarGame {
     this.countdownTime = 5;
     this.answersLog = [];
     this.maxWords = 10;
-    this.loadWords();
+    this.gameStarted = false;
+    this.renderStartButton();
+  }
+
+  renderStartButton() {
+    this.container.innerHTML = "";
+
+    const startButton = document.createElement("button");
+    startButton.textContent = "🚀 Почати гру";
+    startButton.className = "btn-start";
+    startButton.addEventListener("click", () => {
+      startButton.remove();
+      const countdownEl = document.createElement("div");
+      countdownEl.id = "countdown";
+      countdownEl.className = "countdown";
+      this.container.appendChild(countdownEl);
+      this.loadWords();
+    });
+
+    this.container.appendChild(startButton);
   }
 
   async loadWords() {
@@ -106,22 +125,16 @@ class GrammarGame {
     const buttonContainer = document.createElement("div");
     buttonContainer.className = "choices";
 
-    const categories = ["masculine", "feminine", "neuter"];
-    const labels = {
-      masculine: "der",
-      neuter: "das",
-      feminine: "die",
-    };
-    const colorMap = {
-      masculine: "btn-masculine",
-      neuter: "btn-neutral",
-      feminine: "btn-feminine",
-    };
+    const buttons = [
+      { label: "der", category: "masculine", className: "btn-masculine" },
+      { label: "das", category: "neuter", className: "btn-neutral" },
+      { label: "die", category: "feminine", className: "btn-feminine" },
+    ];
 
-    categories.forEach((category) => {
+    buttons.forEach(({ label, category, className }) => {
       const btn = document.createElement("button");
-      btn.textContent = labels[category];
-      btn.className = `choice-button ${colorMap[category]}`;
+      btn.textContent = label;
+      btn.className = `choice-button ${className}`;
 
       btn.addEventListener("click", (e) => {
         clearTimeout(this.timeoutId);

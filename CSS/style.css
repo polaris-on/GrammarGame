@@ -157,6 +157,22 @@ button:hover {
   transform: scale(1.05);
 }
 
+.btn-start {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 24px;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.btn-start:hover {
+  background-color: #45a049;
+}
+
 .choices {
   display: flex;
   justify-content: center;
