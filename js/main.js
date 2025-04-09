@@ -19,7 +19,7 @@ class GrammarGame {
     this.container.innerHTML = "";
 
     const startButton = document.createElement("button");
-    startButton.textContent = "🚀 Почати гру";
+    startButton.textContent = "🚀 Start";
     startButton.className = "btn-start";
     startButton.addEventListener("click", () => {
       startButton.remove();
