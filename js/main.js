@@ -8,7 +8,7 @@ class GrammarGame {
     this.errors = 0;
     this.timeoutId = null;
     this.countdownInterval = null;
-    this.countdownTime = 5;
+    this.countdownTime = 9;
     this.answersLog = [];
     this.maxWords = 10;
     this.gameStarted = false;
